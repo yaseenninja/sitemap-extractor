@@ -8,8 +8,13 @@ import cors from 'cors'
 
 dotenv.config();
 
+var corsOptions = {
+  origin: ['http://127.0.0.1', 'https://sitemap-extractor.netlify.app/'],
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
 const app = express();
-app.use(cors)
+app.use(cors(corsOptions))
 const port = process.env.PORT || 3000;
 const cacheDuration = 60 * 60 * 1 * 1000; // 1 hour in milliseconds
 
