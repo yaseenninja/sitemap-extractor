@@ -4,10 +4,12 @@ import { parseString } from 'xml2js';
 import dotenv from 'dotenv';
 import http from 'http';
 import cache from 'memory-cache';
+import cors from 'cors'
 
 dotenv.config();
 
 const app = express();
+app.use(cors)
 const port = process.env.PORT || 3000;
 const cacheDuration = 60 * 60 * 1 * 1000; // 1 hour in milliseconds
 
